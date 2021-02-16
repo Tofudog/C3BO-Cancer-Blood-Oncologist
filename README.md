@@ -28,3 +28,4 @@ Then, each pixel (of the sample file) of each image is processed then shrinked t
 I connected the layers with the flatten layer, converting the data to a 1D array.
 Likewsie, I provided two dense layers to provide a certain of outputs (eventually one) with each neuron.
 The second sense layer uses a sigmoid function to compute the probability of an image being classified as a certain category.
+
