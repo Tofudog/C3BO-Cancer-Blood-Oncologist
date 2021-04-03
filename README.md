@@ -29,3 +29,6 @@ I connected the layers with the flatten layer, converting the data to a 1D array
 Likewsie, I provided two dense layers to provide a certain of outputs (eventually one) with each neuron.
 The second sense layer uses a sigmoid function to compute the probability of an image being classified as a certain category.
 
+# Fine-tuning
+C-3BO will be fine-tuned with the best possible combination of hyperparameters in a grid search.
+The param_grid = {"epochs": [50 , 75], "batch_size": [5, 10], "learning rate": [0.1, 1, 10]}.
