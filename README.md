@@ -31,4 +31,14 @@ The second sense layer uses a sigmoid function to compute the probability of an 
 
 # Fine-tuning
 C-3BO will be fine-tuned with the best possible combination of hyperparameters in a grid search.
-The param_grid = {"epochs": [50 , 75], "batch_size": [5, 10], "learning rate": [0.1, 1, 10]}.
+The param_grid = {"epochs": [50 , 75], "batch_size": [5, 10], "learning rate": [0.01, 0.1, 1, 10], "optimizers": ("RMS Prop", "Adam")}.
+
+A confusion matrix will be plotted to accentuate false negatives (FN) and true negatives (TN). Concerning this, even validation accuracy will be an insufficient statistic; therefore, precision and recall will hopefully help me gain insights on the validity of the model.
+
+# Leukemia diagnostics
+Leukemia can be diagnosed in various ways though a patient is most likely to develop leukemia if the number of white blood cells is too high. Unfortunately, current public datsets only have cell images of multiple-myeloma. Once I get a sufficient amount of multiple-myeloma and healthy cells, I can train C-3BO to diagnose patients with this approach.
+
+Another way to predict leukemia is by examining proliferated cells. As many would presume, the ideal shape a cell takes is round- having cells that are ragged, elongated, abnormally large, etc. shows proliferation.
+
+The dataset retreived from Kaggle contains thousands of images of healthy and leukemia cells. C-3BO finds underlying patterns in the cells and can fairly accurately identify them. Note that C-3BO has not yet been trained to identify specific types of leukemia (e.g. non-hodkins, AML, CML, etc).
+
