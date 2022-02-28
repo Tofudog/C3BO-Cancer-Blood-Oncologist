@@ -1,0 +1,41 @@
+<Chatbot>:
+    
+    GridLayout:
+    
+        orientation: "lr-tb"
+        cols: 3
+        rows: 2
+        size: root.width, root.height
+       
+        
+        Label:
+            id:name_label
+            text:"Click to see if leukemia is present"
+            color: [203, 181, 93, 0.81]
+            
+        Image:
+            id: input_image
+            source: 'C-3BO_project/background.jpg'
+            allow_stretch: True
+            
+        Image:
+            id: graph
+            source: "C-3BO_project/results/graph1.jpg"
+            
+        Image:
+            id: c3bo
+            source: "C-3BO_project/C3BO.png"
+ 
+        # Creating Icon view other side
+        TextInput:
+            id: input_name
+            multiline:True
+          
+            
+        Button:
+            text: "Diagnose"
+            on_press: root.press()
+            background_color: [230, 105, 102, 0.8]
+            
+            
+
