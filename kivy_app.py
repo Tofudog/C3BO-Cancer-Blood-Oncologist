@@ -23,22 +23,24 @@ Hopefully, this will be nice to look at!
 import os
 os.environ['KIVY_TEXT'] = 'pil'
 import kivy
-kivy.require('1.0.6')
 
 ## App is present in kivy_installation_dir/kivy/app.py.
 from kivy.app import App
 
-## uix holds widgets and layouts
-from kivy.uix.label import Label
 
-## specific imports from layouts
+# specific imports from layouts
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.pagelayout import PageLayout
 from kivy.uix.textinput import TextInput
+from kivy.uix.floatlayout import FloatLayout
 from kivy.core.image import Image as CoreImage
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
+from kivy.uix.label import Label
 from kivy.properties import ObjectProperty
+from kivy.core.window import Window
+
 
 # importing design from kivy_app.kv
 from kivy.lang import Builder
@@ -53,11 +55,8 @@ import cv2 as cv
 from CBO import C3BO
 
 import numpy as np
-
 from keras.metrics import Precision, Recall, AUC,\
 SensitivityAtSpecificity, SpecificityAtSensitivity
-
-
 
 
 Builder.load_file('kivy_app.kv')
@@ -113,7 +112,7 @@ def driverModel():
     return c3bo.model
 
 
-model = driverModel()
+# model = driverModel()
 
 
 # class LoadDialog(FloatLayout):
@@ -128,7 +127,7 @@ model = driverModel()
 
 classes = ["ALL", "Healthy", "MM", "Chronic Myeloid Leukemia"]
 
-class Chatbot(Widget):
+class Chatbot(PageLayout):
     
     # def show_load(self):
     #     content = LoadDialog(load=self.load, cancel=self.dismiss_popup)
@@ -141,21 +140,26 @@ class Chatbot(Widget):
     #     self._popup = Popup(title="Save file", content=content,
     #                         size_hint=(0.9, 0.9))
     #     self._popup.open()
+    
+    def leaveApp(self):        
+        App.get_running_app().stop()
+        Window.close()
 
-    def press(self):
-        
-        image_file = str.split(self.ids.input_name.text, sep="; ")[0]
+    def recordImg(self):
+        field = str.split(self.ids.fileId.text, sep="; ")
+        image_file = field[0]
+        genetic_id = field[1]
         self.ids.input_image.source = image_file
-        img_path = self.ids.input_image.source
-        img = cv.imread(img_path)
+        img = cv.imread(image_file)
         print(img)
         img = cv.resize(img, (128, 128))
         
-        pred = classes[np.argmax(model.predict(np.expand_dims(img, axis=0)))]
+        #pred = classes[np.argmax(model.predict(np.expand_dims(img, axis=0)))]
+        pred = ""
         
         #self.ids.name_label.text = "Leonardo de Farias is cool"
         if pred != "healthy":
-            self.ids.name_label.text = f"Oh My! you do have {pred}"
+            self.ids.clinCls.text = f"Oh My! you do have {pred}"
         
         
         
@@ -213,6 +217,135 @@ if __name__ == '__main__':
 #     def on_pressed(self, instance, pos):
 #         print ('pressed at {pos}'.format(pos=pos))
     
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # FloatLayout:
+              
+    #     canvas.before:
+    #         Color:
+    #             rgba: (1, 1, 1, 1)
+    #         Rectangle:
+    #             source:'C-3BO_project/background.jpg'
+    #             size: root.width, root.height
+    #             pos: self.pos
+
+    #     Image:
+    #         id: c3bo
+    #         source: "C-3BO_project/C3BO.png"
+    #         pos: (80, 50)
+    #         size_hint: (2, 2)
+            
+    #     Image:
+    #         id: callout
+    #         source: "C-3BO_project/c3bo_callout.png"
+    #         pos: (80, 185)
+    #         size_hint: (2, 2)
+            
+    #     Label:
+    #         text: "Personal Credentials"
+    #         pos: (900, 125)
+    #         size_hint: (5, 5)
+            
+    #     Label:
+    #         id: credential_type
+    #         text: "Full Name (Last, First, Middle)"
+    #         pos: (850, 80)
+    #         size_hint: (2, 2)
+            
+        
+    #     # Adjust background_normal (be creative)
+    #     TextInput:
+    #         multiline: True
+    #         hint_text: 'Luke Skywalker'
+    #         pos: (915, 50)
+    #         size_hint: (3, 3)
+            
+    # GridLayout:
+    
+    #     rows: 1
+    #     cols: 1
+        
+    #     Label:
+    #         text: "mama mia!"
+
+
+
+
+
+"""    FloatLayout:
+    
+        canvas:
+            Color:
+                rgba: 143 / 255., 112 / 205., 88 / 255., 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        
+        Image:
+            source: "C-3BO_project/R2D2_img.jpg"
+            size_hint: (.5, .25)
+            #pos: (125, 300)
+        
+        # Peripheral Blood Smear Image
+        Image:
+            source: "Blood-Cancer_Data/ALL_IDB1/im/Im001_1.jpg"
+            size_hint: (.5, .25)
+            #pos: (235, 415)
+        """
+
+
+
+
+
+
     
     
     

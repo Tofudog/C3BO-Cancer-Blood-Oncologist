@@ -154,11 +154,11 @@ class C3BO:
         y_train, y_val, y_test = y_classes[0:180], y_classes[180:300], y_classes[300:]
         return X_train, y_train, X_val, y_val, X_test, y_test
 
-    def train(self, X_train, y_train, X_val, y_val):
+    def train(self, X_train, y_train, X_val, y_val, epochs=1):
         datagen = ImageDataGenerator()        
         datagen.fit(X_train)
         hist = self.model.fit(datagen.flow(X_train, y_train),
-                             validation_data=(X_val, y_val), epochs=35,
+                             validation_data=(X_val, y_val), epochs=epochs,
                              steps_per_epoch=10)
         
         ######------------------
