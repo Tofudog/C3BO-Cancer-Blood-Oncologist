@@ -1,0 +1,241 @@
+<Chatbot>:
+
+    FloatLayout:
+    
+        canvas:
+            Color:
+                rgba: 216/255., 195/255., 21/255., 1
+            Rectangle:
+                pos: self.pos
+                size: self.size     
+        
+        
+        Image:
+            # Strangely enough, source should be .png
+            source: "C-3BO_project/c3bo_temp_logo.png"
+            size: self.texture_size
+            pos: (20, 630)
+        
+        # grand title
+        Label:
+            text: "[u][i]Cancer-3 Blood Oncologist[/i][/u]"
+            markup: True
+            font_size: 60
+            pos: (570, 660)
+        
+        Label:
+            text: "[b]General Info[/b]"
+            markup: True
+            size_hint_y: 1
+            color: (216/255., 195/255., 21/255., 1)
+            outline_width: 2
+            font_size: 30
+            pos: (60, 475)
+        
+        # bulleted info
+        Label:
+            text: "* Leukemia: overproduction of WBC in marrow\n* C-3BO operates with a custom CNN\n* C-3BO cannot speak spanish\n* Version 2.2 comes with BCR-ABL1 analysis"
+            size: (60, 135)
+            color: "black"
+            pos: (145, 400)
+
+        Button:
+            id: proj_info
+            text: "Full Open-Source\nProject + Code"
+            size: (200, 60)
+            color: "white"
+            background_color: "#F24B82"
+            pos: (25, 165)
+            on_release: root.leukemia_info
+        
+        Label:
+            text: "[i]“We Seem To Be Made To Suffer. It’s Our Lot In Life.”[/i] -C-3PO"
+            markup: True
+            font_size: 16
+            color: "black"
+            pos: (185, 10)
+        
+        Image:
+            source: "C-3BO_project/C3BO.png"
+            size: (self.width + 120, self.height + 120)
+            pos: (510, 50)
+
+        
+        ############ FIX! color: #FF6B7C
+        # robo_talk = Label(text="Greetings Doctor How may I help you?", markup=True, font_size=18,
+        #                   color="black", background_color="red", pos=(545, 105))
+        # self.add_widget(robo_talk)
+        
+        TextInput:
+            id: email_input
+            text: "Type in your email: "
+            multiline: False
+            size: (345, 40)
+            pos: (780, 135)
+            
+        TextInput:
+            id: question_input
+            text: "email a question..."
+            multiline: True
+            size: (345, 40)
+            pos: (780, 95)
+            
+        Button:
+            id: send_email
+            text: "Send"
+            size: (345, 40)
+            color: "white"
+            background_color: "FB830F"
+            pos: (780, 55)
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+         
+
+            
+            
+            
+    ### Page 2
+    FloatLayout:
+    
+        canvas:
+            Color:
+                rgba: 143 / 255., 112 / 205., 88 / 255., 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        rows: 3
+        cols: 2
+        
+        Label:
+            id: clinCls
+            text: "Clinical Classification:\n-----------------"
+            text_size: root.width, None
+            size: self.texture_size
+            color: 23, 3, 88, 23
+            
+        # Peripheral Blood Smear Image
+        Image:
+            id: input_image
+            source: "Blood-Cancer_Data\multiple_myeloma\101.png"
+            size_hint: (.5, .25)
+            #pos: (235, 415)
+        
+        Image:
+            source: "C-3BO_project/R2D2_img.png"
+            size_hint: (.5, .25)
+            #pos: (125, 300)
+        
+        Label:
+            text: ""
+  
+        Button:
+            id: btnImage
+            text: "PBS Leuk. Input"
+            # background_normal: ---
+            # background_down: ---
+            on_press: root.recordImg()
+            
+        #TextInput:
+            #id: fileId
+            #auto_indent: True
+            #background_disabled_normal: "ImageDatabase/closed_sign.jpg"
+            #background_color: (2, 4, 10, 5)
+            #cursor_blink: True
+
+        #########
+        # Creating list view one side
+        FileChooserListView:
+            on_selection: root.select(*args)
+         
+         
+         
+         
+        Button:
+            id: btnExit
+            text: "Exit"
+            # background_normal: ---
+            # background_down: ---
+            on_press: root.leaveApp()
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+    
+    
+   
+            
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                
+                
+    
