@@ -1,0 +1,58 @@
+<PageLayout>:
+
+    FloatLayout:
+
+        canvas:
+            Color:
+                rgba:216/255., 195/255., 21/255., 1
+            Rectangle:
+                pos:self.pos
+                size:self.size     
+
+        Image:
+            source:"C-3BO_project/c3bo_temp_logo.png"
+            size:self.texture_size
+            pos:(20, 630)
+
+        Label:
+            text:"[u][i]Cancer-3 Blood Oncologist[/i][/u]"
+            markup:True
+            font_size:60
+            pos:(570, 660)
+
+        Label:
+            text:"[b]General Info[/b]"
+            markup:True
+            size_hint_y:1
+            color:(216/255., 195/255., 21/255., 1)
+            outline_width: 2
+            font_size: 30
+            pos: (60, 475)
+        
+        # bulleted info
+        Label:
+            text: "* Leukemia: overproduction of WBC in marrow\n* C-3BO operates with a custom CNN\n* C-3BO cannot speak spanish\n* Version 2.2 comes with BCR-ABL1 analysis"
+            size: (60, 135)
+            color: "black"
+            pos: (145, 400)
+
+        Button:
+            id: proj_info
+            text: "Full Open-Source\nProject + Code"
+            size: (200, 60)
+            color: "white"
+            background_color: (242, 75, 130, 1)
+            pos: (25, 165)
+            #on_release: root.leukemia_info
+        
+        Label:
+            text: "[i]“We Seem To Be Made To Suffer. It’s Our Lot In Life.”[/i] -C-3PO"
+            markup: True
+            font_size: 16
+            color: "black"
+            pos: (185, 10)
+        
+        #Image:
+            #source: "C-3BO_project/C3BO.png"
+            #size: (self.width + 120, self.height + 120)
+            #pos: (510, 50)
