@@ -42,3 +42,4 @@ Another way to predict leukemia is by examining proliferated cells. As many woul
 
 The dataset retreived from Kaggle contains thousands of images of healthy and leukemia cells. C-3BO finds underlying patterns in the cells and can fairly accurately identify them. Note that C-3BO has not yet been trained to identify specific types of leukemia (e.g. non-hodkins, AML, CML, etc).
 
+Here is my first paper on C-3BO to binary classification: https://docs.google.com/document/d/17uJWoE8gqPTfz0yZE0a_Q3HpVYpWcqx1lji7vLFfbFU/edit 
